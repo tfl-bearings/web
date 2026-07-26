@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+  University of Greenwich brand palette
+  (sampled from the live site's CSS — gre_22.css)
+*/
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: #00033d;
+  --color-navy-deep: #010226;
+  --color-royal: #0058aa;
+  --color-sky: #61ccf3;
+  --color-mint: #89e9d7;
+  --color-mint-pale: #a1eddf;
+  --color-teal: #218474;
+  --color-ink: #2e2e2e;
+  --color-mist: #eeedee;
+  --color-gold: #d4a72c;
+  --color-alert: #cc4b37;
+  --font-sans: var(--font-cooper), Calibri, Tahoma, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-mint);
+  color: var(--color-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-royal);
+  outline-offset: 2px;
+}
+
+/* Dropdown / search panel entrance */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.menu-in {
+  animation: menu-in 0.18s ease-out;
+}
+
+/* Hero content entrance */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.55s ease-out both;
 }

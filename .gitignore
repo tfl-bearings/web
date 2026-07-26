@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# real-brand assets — fetched locally via scripts/fetch-assets.ps1, not distributed
+/public/images/real/
+/app/icon.png
+/app/apple-icon.png
