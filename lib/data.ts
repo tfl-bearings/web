@@ -1,5 +1,11 @@
 /* Central content data for the site clone */
 
+/* Admissions WhatsApp line — shown in the footer and on the contact page */
+export const ADMISSIONS_WHATSAPP = {
+  display: "+44 7307 937186",
+  href: "https://wa.me/447307937186",
+};
+
 export type NavLink = { label: string; href: string };
 export type MegaColumn = { heading: string; links: NavLink[] };
 export type NavItem = { label: string; href: string; columns?: MegaColumn[] };

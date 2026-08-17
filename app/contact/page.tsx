@@ -2,26 +2,36 @@
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
+import { ADMISSIONS_WHATSAPP } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact us | University of Greenwich Clone",
   description: "Questions about courses, applications or visits — ask away.",
 };
 
-const CONTACT_CARDS = [
+const CONTACT_CARDS: {
+  title: string;
+  lines: { text: string; href?: string }[];
+  note: string;
+}[] = [
+  {
+    title: "Admissions on WhatsApp",
+    lines: [{ text: ADMISSIONS_WHATSAPP.display, href: ADMISSIONS_WHATSAPP.href }],
+    note: "For admission enquiries, message us on this number",
+  },
   {
     title: "Course and application enquiries",
-    lines: ["020 8331 8000", "courseinfo@gre.ac.uk"],
+    lines: [{ text: "020 8331 8000" }, { text: "courseinfo@gre.ac.uk" }],
     note: "Monday to Friday, 9am–5pm",
   },
   {
     title: "International students",
-    lines: ["+44 (0)20 8331 8136", "international@gre.ac.uk"],
+    lines: [{ text: "+44 (0)20 8331 8136" }, { text: "international@gre.ac.uk" }],
     note: "Replies within two working days",
   },
   {
     title: "Clearing hotline",
-    lines: ["020 8331 9000"],
+    lines: [{ text: "020 8331 9000" }],
     note: "Extended hours on Results Day",
   },
 ];
@@ -38,7 +48,7 @@ export default function ContactPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Talk to us" title="Get in touch" />
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {CONTACT_CARDS.map((card) => (
               <article
                 key={card.title}
@@ -48,11 +58,23 @@ export default function ContactPage() {
                   {card.title}
                 </h3>
                 <div className="mt-3 space-y-1">
-                  {card.lines.map((line) => (
-                    <p key={line} className="font-semibold text-royal">
-                      {line}
-                    </p>
-                  ))}
+                  {card.lines.map((line) =>
+                    line.href ? (
+                      <a
+                        key={line.text}
+                        href={line.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block font-semibold text-royal underline-offset-4 hover:underline"
+                      >
+                        {line.text}
+                      </a>
+                    ) : (
+                      <p key={line.text} className="font-semibold text-royal">
+                        {line.text}
+                      </p>
+                    ),
+                  )}
                 </div>
                 <p className="mt-3 text-sm text-ink/60">{card.note}</p>
               </article>

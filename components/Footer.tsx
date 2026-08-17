@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Logo from "./Logo";
-import { FOOTER_COLUMNS } from "@/lib/data";
+import { ADMISSIONS_WHATSAPP, FOOTER_COLUMNS } from "@/lib/data";
 
 const SOCIALS: { label: string; href: string; path: string }[] = [
   {
@@ -104,6 +104,18 @@ export default function Footer() {
               London SE10 9LS
             </address>
             <p className="mt-3 text-[15px] text-white/75">020 8331 8000</p>
+            <p className="mt-3 text-[15px] leading-relaxed text-white/75">
+              For admission, contact us on WhatsApp:
+              <br />
+              <a
+                href={ADMISSIONS_WHATSAPP.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-mint transition-colors hover:text-white"
+              >
+                {ADMISSIONS_WHATSAPP.display}
+              </a>
+            </p>
             <Link
               href="/contact"
               className="mt-5 inline-block rounded-none border-2 border-mint px-5 py-2.5 text-sm font-bold text-mint transition-colors hover:bg-mint hover:text-navy"
