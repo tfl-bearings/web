@@ -2,8 +2,8 @@
 
 /* Admissions WhatsApp line — shown in the footer and on the contact page */
 export const ADMISSIONS_WHATSAPP = {
-  display: "+44 7307 937186",
-  href: "https://wa.me/447307937186",
+  display: "+44 7529 721655",
+  href: "https://wa.me/447529721655",
 };
 
 export type NavLink = { label: string; href: string };

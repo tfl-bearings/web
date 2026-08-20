@@ -2,6 +2,7 @@
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { ADMISSIONS_WHATSAPP } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -65,8 +66,12 @@ export default function ContactPage() {
                         href={line.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block font-semibold text-royal underline-offset-4 hover:underline"
+                        className="flex items-center gap-2 font-semibold text-royal underline-offset-4 hover:underline"
                       >
+                        <WhatsAppIcon
+                          size={18}
+                          className="shrink-0 text-[#25D366]"
+                        />
                         {line.text}
                       </a>
                     ) : (
